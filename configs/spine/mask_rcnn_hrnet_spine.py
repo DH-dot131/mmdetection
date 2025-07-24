@@ -131,8 +131,9 @@ train_dataloader = dict(
         num_workers=4,
     dataset=dict(
         type=dataset_type,
-        ann_file=data_root + 'train.json',
+        ann_file='train.json',
         data_prefix=dict(img = raw_data_root),
+        data_root = data_root,
         metainfo=metainfo,
         pipeline=train_pipeline
     )
@@ -142,8 +143,9 @@ val_dataloader = dict(
     num_workers=4,
     dataset=dict(
         type=dataset_type,
-        ann_file=data_root + 'val.json',
+        ann_file= 'val.json',
         data_prefix=dict(img = raw_data_root),
+        data_root = data_root,
         metainfo=metainfo,
         pipeline=test_pipeline
     )
@@ -153,7 +155,8 @@ test_dataloader = dict(
         num_workers=4,
     dataset=dict(
         type=dataset_type,
-        ann_file=data_root + 'test.json',
+        ann_file= 'test.json',
+        data_root = data_root,
         data_prefix=dict(img = raw_data_root),
         metainfo=metainfo,
         pipeline=test_pipeline
